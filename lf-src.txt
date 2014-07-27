@@ -1,0 +1,23 @@
+---lf--------------
+langio.pas
+lf.pas  
+lf1bld.pas
+lf1cntl.pas
+lf1dril.pas
+lf1files.pas
+lf1gen.pas
+lf1less.pas
+lf1main.pas
+lf1scrns.pas
+lf1strg.pas
+lf1vars.pas
+scrio.pas
+also needs files logdata.fl1, engndx.fl1, lgndx.fl1 (--> namel.fl1, nameh.fl1)
+---lf1bldwd---------
+langio.pas
+lf1bldwd.pas
+lf1strg.pas
+lf1vars.pas
+lf1varix.pas
+scrio.pas
+also needs logdata.raw (-->logdata.fl1, endndx.fl1, lgndx.fl1)

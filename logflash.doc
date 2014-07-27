@@ -1,0 +1,235 @@
+What follows is a summary of the pattern of LogFlash 1 study: how the words
+move from pile to pile.
+
+Presented in Lesson order for each session (top to bottom of ladder).
+
+First Mode: New Word Review
+Recog 1  -> lojban recog -> Under Control
+Dropback ->   "      "   -> Recog 1
+New Word ->   "      "   -> Recog 1
+
+(This gets people exposed to the entire list quickly, making it likely
+that they will get better percentages the second time through, giving
+them some ability to read, and knowing the scope of the gismu list.)
+
+Second Mode: Gaining Control
+
+*Under Control -> lojban recall -> Under Control (English to Lojban)
+Recall 1 -> lojban recall -> Under Control
+Recog 3  ->   "    recall -> Recall 1
+Recog 2  -> lojban recog -> Recog 3
+Recog 1  ->   "      "   -> Recog 2
+Dropback ->   "      "   -> Recog 1
+New Word ->   "      "   -> Recog 1
+
+*Under Control Lesson consists of words inserted into Under Control
+EXACTLY 3 sessions earlier (words put into Under Control are kept
+together by session number) + an additional number randomly selected
+from other Under Control words to bring the total to approximately the
+desired New Word Lesson size.
+
+(User is prompt for an optional change to this mode at the start of any
+session after all words are out of the New Word pile in New Word Review
+mode.  This is the main new-learner mode.)
+
+Third Mode: Maintenance
+
+*Under Control -> lojban recall -> Under Control (English to Lojban)
+Recall 1 -> lojban recall -> Under Control
+Recog 2  ->   "    recall -> Recall 1
+Recog 1  -> lojban recog -> Recog 2
+Dropback ->   "      "   -> Recog 1
+
+*As with Gaining Control, the Session Number when a word is put into
+Under Control is saved.  For Under Control Lesson in this mode, however.
+we search for the oldest session number, and then test all words with
+that session number.  Successful words are given the current session
+number, thus making them newest session number.  Aging then rotates them
+back to oldest etc.  In effect what this is giving is an infinite stack
+of Under Control piles, of which we only test one each session.
+
+(User is prompted for an optional change to this mode from Gaining
+Control or Brush-Up modes at the start of any session when all New Words
+are out of the New Word Mode, and no pile below Under Control has more
+than 'Number of New Words' words in it.)
+
+When a person enters Maintenance mode from Gaining Control for the first
+time, Recall will typically be at 30-50% on Under Control Words.  Each
+succeeding pass through the complete deck will tend to cut the error
+rate in half.  Regrouping is suggested after about two complete passes
+through the deck in this mode, and about every 3 passes thereafter,
+generally doubling your lesson size at each regrouping.  When you reach
+97% recall average on lesson sizes over 100 words per lesson for an
+entire deck, you can be said to have achieved Mastery.  At that point,
+even long term lapse in use of Logflash will be unlikely to drop later
+efforts below 80-90%.
+
+Fourth Mode: Brush-Up
+
+This mode is identical to Gaining Control, except that there is no Recog
+3 pile:
+
+*Under Control -> lojban recall -> Under Control (English to Lojban)
+Recall 1 -> lojban recall -> Under Control
+Recog 2  ->   "    recall -> Recall 1
+Recog 1  ->   "      "   -> Recog 2
+Dropback ->   "      "   -> Recog 1
+New Word ->   "      "   -> Recog 1
+
+* Under Control as defined for Gaining Control Mode.
+
+(The purpose of Brush-up Mode is to support such a person who has
+stopped use of LogFlash for at least 6 months, vcausing him to want to
+work the words up the ladder again.  Since Recog simply is not lost to
+any great degree even after a long period of time, the extra Recog
+lesson can be skipped, allowing faster progress to Recall, which tends
+to be worth more concentration.)
+
+Default number of words in each New Word Lesson is 20.  This is changeable to
+ a maximum of 250.
+
+Maximum number of words in each lesson is unlimited.  This may be reduced.  If
+ there are more words in a lesson than the maximum, the rest are saved for the
+ next session.
+
+There exists a Skip New Words Flag that may be set at any time, with the stated
+ effect.  (These last two options are two methods of dealing with error pile
+ buildup due to just low percentages (use max size) or a period of inactivity
+ (use skip new words, and possibly also max lesson size).  The idea is to
+ get people to stick with a consistent and somewhat ambitious number of
+ New Words, rather than to keep fiddling with it, or to get depressed
+ when progress slows or lessons get too long.)
+
+In the default option, error lessons occur after each main lesson, and
+ after all are correct N times (N default 6, but now changeable), then go
+ to the next lesson.  At the end of a session, all error words are moved
+ to the Dropback pile.
+
+There is a 'Dropback flag' option.  If reset, then error words for any
+ pile are moved to the next pile lower, rather than to the Dropback pile
+ at the bottom of the ladder.  (Dropback errors are returned to the
+ Dropback pile.)  This is an experimental option that people have asked
+ for, but is not recommended.
+
+There is an automatic review given at the start of any New Word lesson,
+ and any error lesson, which may be exited at will.  The current program
+ allows review to display 1 word at a time in a format like the test
+ screen, or 4 words at a time in a slightly condensed version of the test
+ screen, with paging up and down among the screens.  Optional review or
+ printing of all words, or all words for a given lesson, is possible from
+ the Main Menu.
+
+
+
+
+
+Here is how LogFlash 2 (which has not been updated lately) teaches rafsi:
+
+The same input file is used, but different internal tables are generated
+from it.  This is why the gismu list has cmavo on it, when those cmavo
+have rafsi assigned.
+
+Recog Lessons:
+
+In any lesson, there are three passes made through all the words.  All
+words with a CVC rafsi are presented in a random order, the user
+identifying the actual word from the rafsi.  Then repeat for CCV, and
+then for CVV.  Thus there could be as many frames as 3*#words.  Since
+null rafsi frames are skipped, in actuality the typical number of tested
+frames is less than the number of words per lesson.
+
+Errors are noted for each frame, and the error lesson tests you only on
+the frames in which you erred.  A word which has NO errors in ANY of the
+three frames is advanced to the next higher rung.  Thus a word with no
+rafsi is not tested in Recog lessons at all.  This has been a mild
+problem, making these words both too easy and too hard at the Recall
+lesson level, since the user will not have seen them since New Word
+pre-lesson Review 3 sessions before.
+
+At the end of a session, all words with at least 1 error frame will be
+in error piles, and are moved to the Failure pile (now to be renamed
+Dropback, of course).
+
+Recall Lessons:
+
+The user is presented with the word, and three blank fields labelled
+CVC, CCV, CVV.  The user must type in the correct rafsi and/or leave
+blank if none for ALL 3 fields (TAB used between fields), then ENTER
+to check all 3.  An error in any one, including either an omission of
+a rafsi or an extraneous rafsi, marks the whole word an error.  The
+3-entry field is tested 6 times.
+
+At the end of a session, all error words will be in error piles, and are
+moved to the Failure pile.  However, as that is a Recog pile, the test
+reverts to 'triple frame' mode.
+
+Since you are more likely to miss words with multiple rafsi, the Failure
+pile tends to gain a high pile count, and higher than average frames per
+word-in-pile.
+
+Under Control is a Recall Lesson, with words selected as for LogFlash 1
+of the appropriate mode.
+
+There are 3 modes.  Gaining Control which tests Lojban<-> rafsi.  This
+graduates to Brush-up which tests English keyword<->rafsi (and thus
+should not be used until the user is reasonably proficient with LogFlash
+1), and thence to Maintenance, also English keyword<-> rafsi.
+
+Nora finished Gaining Control, reaching a reliable skill of 30%.  I
+finished both Gaining Control and Brush-up, and 1 pass of Maintenance
+reaching a skill of 70-80% (of which 10% more were gismu to keyword
+errors).  This was 2+ years ago.
+
+The lessons are more difficult, and hence higher error rates and slower
+progress.  HOWEVER, the density of the rafsi packing is so high, and the
+possible choices for each word so limited that by the time you reach the
+end of the list, half of the word/rafsi relations are known merely by
+elimination.  Thus there is a hump that is really noticeable in the
+learning curve.
+
+
+
+The new Logflash 2 (which is back-burnered indefinitely, due to lack of demand
+will add two things, and change one.
+
+1) There will be a New Word Review mode with two lessons as with LF1 and
+LF3.  These Recog lessons will present all 3 rafsi on a single screen,
+thus a single frame per word.
+
+2) In Gaining Control and Brushup modes, the Recog 2 lesson will be of
+the type just described, thus allowing a kind of review of the rafsi for
+a word as a gestalt for the more difficult Recog3->Recall 1 lesson.
+
+3) The lujvo making program will be integrated into LogFlash.  There
+will be a Recog lujvo lesson added as part of the gestalt Recog 2 above,
+and a Recall lujvo lesson added as part of the Under Control Lesson.
+Thus there will be more chances to get words wrong, buyt more variety
+and application.  The speed of learning is thus expected to increase
+markedly.
+
+In each of the lujvo-making lessons a lujvo problem will be presented.
+
+In Recog lujvo, a randomly generated lujvo will be presented for each
+word, using each rafsi form.  The user must then give the Lojban, then
+in Brush-Up/Maintenance, the English tanru that is reflected in the
+lujvo.  Only words in the current lesson will be used, and some type of
+check-off scheme will ensure that some frame will use each rafsi form
+for a word, including 4-letter and 5-letter forms.  The total number of
+frames will thus be 1-2 times the number of words.
+
+In Recall lujvo, a tanru in Lojban or English depending on mode will be
+presented, and the user must type in a valid lujvo.  Options will permit
+the word to be graded correct if 1) any valid lujvo form 2) one of the
+top N scoring lujvo forms 3) only the top scoring lujvo form, with the
+default as 2) with N = 5.
+
+All of this is subject to change.
+
+
+
+Finally, here is how LogFlash 3 teaches cmavo:
+
+The LogFlash 3 program is virtually identical to LogFlash 1, except that
+field sizes are changed, necessitating some minor screen rearrangement.
+The rafsi field is replaced by the selma'o field, and the Lojban text
+field is larger.
