@@ -1360,7 +1360,7 @@ begin
             Quitdisplay := true;
          end;
    until (Quitdisplay);
-   release(heaporg); {release all heap (arr is on heap)}
+   {release(heaporg); {release all heap (arr is on heap)}}
    if KeywdEdited then
       begin
       with scrn_misc_data do

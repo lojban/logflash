@@ -351,6 +351,6 @@ begin
      SORTNDX(LgNdxArray);
      writeln('Lg Index: write');
      BUILDNDX(lgndxname,LgNdxArray);
-     release(heaporg); {release all heap (index arrays are on heap)}
+     {release(heaporg); {release all heap (index arrays are on heap)}}
      writeln('Done.');
 end.

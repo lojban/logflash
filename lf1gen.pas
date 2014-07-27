@@ -24,7 +24,7 @@ begin
      checkaccent := true;                    {allow for accented letters}
      oldestset   := 0;                       {init oldest set und ctl wds}
      scrn_misc_data.scrn_clr_color := NormColor;
-     release(heaporg); {release all heap (arr is on heap)}
+     {release(heaporg); {release all heap (arr is on heap)}}
      for i := 1 to arrsize do
          new(arr[i]);
 end;
@@ -205,5 +205,5 @@ new(DsplyData);
 GETNDX(DsplyData);
 SORTNDX(DsplyData);
 BUILDENGNDX(DsplyData);
-release(heaporg); {release all heap (arr is on heap)}
+{release(heaporg); {release all heap (arr is on heap)}}
 end;

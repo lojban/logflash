@@ -69,5 +69,5 @@ restart:
             end;
        end;
      until (q = '*') or quit;                   {menu loop}
-     release(heaporg); {release all heap (arr is on heap)}
+     {release(heaporg); {release all heap (arr is on heap)}}
 end;

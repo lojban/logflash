@@ -21,7 +21,7 @@ begin
        end;
     SCREENIO(scrn_misc_data);
     textattr := system_color;
-    release(heaporg); {release all heap (arr is on heap)}
+    {release(heaporg); {release all heap (arr is on heap)}}
     halt;
 end;
 {************************************************************************}
